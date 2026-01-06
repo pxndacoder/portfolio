@@ -88,6 +88,7 @@ nav {
   padding: 20px 5%;
   background: var(--nav-bg);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 1000;
   border-bottom: 1px solid var(--border-color);
   transition: all 0.3s ease;
@@ -318,6 +319,7 @@ nav > .fa-bars {
 /* ========== HERO SECTION ========== */
 .hero-section {
   min-height: 100vh;
+  min-height: 100dvh; /* iOS Safari */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -459,7 +461,7 @@ nav > .fa-bars {
 .education-section {
   min-height: 400px;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("UWI.png") center/cover fixed;
+    url("UWI.png") center / cover fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -484,6 +486,7 @@ nav > .fa-bars {
 .education-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 40px 60px;
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -570,13 +573,12 @@ nav > .fa-bars {
 .stats-group {
   display: flex;
   flex-direction: column;
-  width: fit-content; /* Key fix: shrinks container to match stats width */
+  width: fit-content;
   gap: 20px;
   margin-top: 30px;
 }
 
 .stats {
-  /* Remove any existing margin-top here if strictly following this structure */
   margin-top: 0;
   display: flex;
   gap: 20px;
@@ -639,6 +641,14 @@ nav > .fa-bars {
   transition: all 0.3s ease;
   border: 1px solid var(--border-color);
   box-shadow: 0 5px 15px var(--card-shadow);
+
+  /* anchor-friendly */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
 }
 
 .skill-card:hover {
@@ -667,7 +677,7 @@ nav > .fa-bars {
 
 .resume-wrapper {
   display: flex;
-  justify-content: flex-end; /* Aligns to right of the GROUP, not the page */
+  justify-content: flex-end;
   width: 100%;
 }
 
@@ -676,7 +686,7 @@ nav > .fa-bars {
   align-items: center;
   width: 100%;
   gap: 10px;
-  padding: 10px 20px; /* Slightly smaller to fit better */
+  padding: 10px 20px;
   font-size: 0.9rem;
 }
 
@@ -1065,6 +1075,12 @@ nav > .fa-bars {
   padding: 20px 5%;
   scrollbar-width: thin;
   scrollbar-color: var(--text-accent) var(--bg-secondary);
+
+  /* iOS smoother scrolling */
+  -webkit-overflow-scrolling: touch;
+
+  /* snap scrolling on mobile */
+  scroll-snap-type: x mandatory;
 }
 
 .gallery-scroll-container::-webkit-scrollbar {
@@ -1098,6 +1114,7 @@ nav > .fa-bars {
   cursor: pointer;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  scroll-snap-align: start;
 }
 
 .gallery-item:hover {
@@ -1326,7 +1343,7 @@ nav > .fa-bars {
   right: 20px;
 }
 
-/* Hackathon Gallery Modal */
+/* Gallery Modal Grid (used for Hackathon/Certificates/University) */
 .hackathon-gallery {
   max-width: 1000px;
   margin: 80px auto;
@@ -1467,6 +1484,24 @@ nav > .fa-bars {
   color: var(--text-accent);
 }
 
+/* ========== MOBILE / ACCESSIBILITY IMPROVEMENTS ========== */
+button,
+a {
+  touch-action: manipulation;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 992px) {
   .about-container {
@@ -1497,6 +1532,11 @@ nav > .fa-bars {
 }
 
 @media (max-width: 768px) {
+  /* iOS Safari fix: background-attachment: fixed is unreliable */
+  .education-section {
+    background-attachment: scroll !important;
+  }
+
   /* Mobile Navigation */
   nav > .fa-bars {
     display: block;
@@ -1522,6 +1562,7 @@ nav > .fa-bars {
 
   .nav-links ul li a {
     font-size: 1.1rem;
+    padding: 12px 0; /* better tap target */
   }
 
   .nav-links .fa-times {
@@ -1570,7 +1611,6 @@ nav > .fa-bars {
   .loading-screen .progress-container {
     width: 280px;
   }
-  
 
   /* Stats */
   .stats {
