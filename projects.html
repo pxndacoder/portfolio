@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Kye's Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <a href="index.html" class="logo" onclick="forceShowLoader()">KB</a>
+
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="projects.html" class="active">PROJECTS</a></li>
+          <li><a href="gallery.html">GALLERY</a></li>
+        </ul>
+
+        <div class="mobile-social-links">
+          <a href="mailto:brathwaitekye@email.com"
+            ><i class="fas fa-envelope"></i
+          ></a>
+          <a href="https://github.com/pxndacoder" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/kye-brathwaite-5a5ab0353/"
+            target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <main class="projects-main">
+      <!-- Header -->
+      <header class="projects-header">
+        <h1>My Projects</h1>
+        <p>A collection of my recent work and side projects</p>
+      </header>
+
+      <!-- Filter Buttons -->
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="data">Data Science</button>
+        <button class="filter-btn" data-filter="automation">
+          Automation (n8n)
+        </button>
+        <button class="filter-btn" data-filter="other">Others</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        <!-- Featured / Built -->
+        <div class="project-card" data-category="data">
+          <div class="project-image">
+            <img
+              src="Projectimages/churn.png"
+              alt="Bank Customer Churn Prediction"
+            />
+            <div class="project-overlay">
+              <a
+                href="https://github.com/pxndacoder/bank-churn-prediction"
+                target="_blank"
+                aria-label="View on GitHub"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>Bank Customer Churn Prediction</h3>
+            <p>
+              Built a churn model and retention insights workflow to identify
+              at-risk customers and key churn drivers.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>pandas</span>
+              <span>scikit-learn</span>
+              <span>EDA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="automation">
+          <div class="project-image">
+            <img
+              src="Projectimages/dental-care-follow-up.png"
+              alt="n8n Dental Care Follow Up Automation"
+            />
+            <div class="project-overlay">
+              <a
+                href="https://github.com/pxndacoder/n8n-Dental-Care-Follow-Up-"
+                target="_blank"
+                aria-label="View on GitHub"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>Dental Care Follow-Up Automation</h3>
+            <p>
+              n8n workflow to automate patient follow-ups, reminders, and status
+              tracking.
+            </p>
+            <div class="project-tech">
+              <span>n8n</span>
+              <span>Automation</span>
+              <span>Workflows</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="other">
+          <div class="project-image">
+            <img src="Projectimages/Budget.png" alt="Home budget" />
+            <div class="project-overlay">
+              <a
+                href="https://github.com/pxndacoder/Budget-Expense-Tracker.git"
+                target="_blank"
+                aria-label="View on GitHub"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>Budget Expense Tracker</h3>
+            <p>
+              The app allows users to add, edit, and categorize budget items and
+              expenses in real time, providing an intuitive interface with
+              dynamic updates and clear visual feedback.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Data Cleaning</span>
+              <span>Analytics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Others -->
+        <div class="project-card" data-category="other">
+          <div class="project-image">
+            <img
+              src="Projectimages/final-project.jpg"
+              alt="INFO2180 Final Project"
+            />
+            <div class="project-overlay">
+              <a
+                href="https://github.com/Toff-cowan/info2180-finalproject"
+                target="_blank"
+                aria-label="View on GitHub"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>INFO2180 Final Project</h3>
+            <p>
+              Web coursework project demonstrating core full-stack concepts and
+              implementation.
+            </p>
+            <div class="project-tech">
+              <span>Web</span>
+              <span>Coursework</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="other">
+          <div class="project-image">
+            <img
+              src="Projectimages/CoinFlip.png"
+              alt="Coin Flip Simulator (Law of Large Numbers)"
+            />
+            <div class="project-overlay">
+              <a
+                href="https://github.com/pxndacoder/PythonPracticeProjects/tree/main/project4_CoinFlipSimulator"
+                target="_blank"
+                aria-label="View on GitHub"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>Coin Flip Simulator Collection</h3>
+            <p>
+              Built a set of Python simulations demonstrating the Law of Large
+              Numbers, including multi-flip counters, running ratios, streak
+              tracking, and Matplotlib visualizations.
+            </p>
+            <div class="project-tech">
+              <span>Python</span>
+              <span>Random</span>
+              <span>Matplotlib</span>
+              <span>Simulation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CIBC project card -->
+        <div class="project-card" data-category="automation">
+          <div class="project-image">
+            <img
+              src="Projectimages/cibc.png"
+              alt="CIBC Budget Tracker (n8n Workflow)"
+            />
+            <div class="project-overlay">
+              <a
+                href="https://github.com/pxndacoder/n8nProjects"
+                target="_blank"
+                aria-label="View on GitHub"
+                rel="noreferrer"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>CIBC Budget Tracker (n8n Workflow)</h3>
+            <p>
+              Built an automated budget tracking workflow in n8n that parses
+              bank email notifications, extracts transaction details, converts
+              BBD → JMD, and logs income/spending into Google Sheets with a
+              dynamic dashboard.
+            </p>
+            <div class="project-tech">
+              <span>n8n</span>
+              <span>Gmail</span>
+              <span>Google Sheets</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coming Soon (hidden)
+        <div class="project-card" data-category="data">
+          <div class="project-image">
+            <img src="images/fraud-cover.png" alt="Fraud / Risk Detection" />
+            <div class="project-overlay">
+              <a href="#" aria-label="Coming soon" onclick="return false;">
+                <i class="fas fa-hourglass-half"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>Fraud / Risk Detection Model (Coming Soon)</h3>
+            <p>
+              Model + evaluation focused on precision/recall tradeoffs and
+              compliance-friendly explainability.
+            </p>
+            <div class="project-tech">
+              <span>Risk</span>
+              <span>ML</span>
+              <span>Explainability</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="data">
+          <div class="project-image">
+            <img
+              src="images/forecasting-cover.png"
+              alt="Time-Series Forecasting"
+            />
+            <div class="project-overlay">
+              <a href="#" aria-label="Coming soon" onclick="return false;">
+                <i class="fas fa-hourglass-half"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>Time-Series Forecasting (Coming Soon)</h3>
+            <p>
+              Forecasting project (cash/demand/energy) with backtesting and
+              business focused metrics.
+            </p>
+            <div class="project-tech">
+              <span>Time Series</span>
+              <span>Forecasting</span>
+              <span>Python</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="data">
+          <div class="project-image">
+            <img src="images/pipeline-cover.png" alt="End-to-End ML Pipeline" />
+            <div class="project-overlay">
+              <a href="#" aria-label="Coming soon" onclick="return false;">
+                <i class="fas fa-hourglass-half"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>End-to-End Dashboard / ML Pipeline (Coming Soon)</h3>
+            <p>
+              Full pipeline from ingestion to validation, training, and
+              dashboard reporting.
+            </p>
+            <div class="project-tech">
+              <span>Pipelines</span>
+              <span>Dashboards</span>
+              <span>Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="automation">
+          <div class="project-image">
+            <img
+              src="images/dq-bot-cover.png"
+              alt="Data Quality Monitoring Bot"
+            />
+            <div class="project-overlay">
+              <a href="#" aria-label="Coming soon" onclick="return false;">
+                <i class="fas fa-hourglass-half"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>Data Quality Monitoring Bot (Coming Soon)</h3>
+            <p>
+              Automated checks for missing values, schema drift, and anomalies
+              with alerting + logs.
+            </p>
+            <div class="project-tech">
+              <span>n8n</span>
+              <span>Monitoring</span>
+              <span>Data Quality</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="automation">
+          <div class="project-image">
+            <img
+              src="images/kpi-report-cover.png"
+              alt="KPI Auto Report Generator"
+            />
+            <div class="project-overlay">
+              <a href="#" aria-label="Coming soon" onclick="return false;">
+                <i class="fas fa-hourglass-half"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>KPI Auto-Report Generator (Coming Soon)</h3>
+            <p>
+              Scheduled KPI pulls, chart generation, and automated email/PDF
+              reporting.
+            </p>
+            <div class="project-tech">
+              <span>n8n</span>
+              <span>Reporting</span>
+              <span>Automation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="automation">
+          <div class="project-image">
+            <img
+              src="images/complaints-cover.png"
+              alt="Complaint Triage Automation"
+            />
+            <div class="project-overlay">
+              <a href="#" aria-label="Coming soon" onclick="return false;">
+                <i class="fas fa-hourglass-half"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3>Complaint Triage Automation (Coming Soon)</h3>
+            <p>
+              Auto-categorize complaints, set priority, and route to the right
+              team with SLA tracking.
+            </p>
+            <div class="project-tech">
+              <span>Automation</span>
+              <span>NLP</span>
+              <span>Operations</span>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+    </main>
+
+    <script src="darkmode.js"></script>
+    <script src="script.js"></script>
+    <script src="projects.js"></script>
+  </body>
+</html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Kye's Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <a
+        href="index.html"
+        class="logo"
+        onclick="if (window.forceShowLoader) forceShowLoader()"
+        >KB</a
+      >
+
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="projects.html">PROJECTS</a></li>
+          <li><a href="gallery.html" class="active">GALLERY</a></li>
+        </ul>
+
+        <div class="mobile-social-links">
+          <a href="mailto:Brathwaitekye@gmail.com"
+            ><i class="fas fa-envelope"></i
+          ></a>
+          <a href="https://github.com/" target="_blank" rel="noreferrer"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://linkedin.com/" target="_blank" rel="noreferrer"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <main class="gallery-main">
+      <!-- Header -->
+      <header class="gallery-header">
+        <div class="header-content">
+          <h1>Gallery</h1>
+          <p>Explore my visual journey and creative works</p>
+        </div>
+      </header>
+
+      <!-- Gallery Section -->
+      <section class="gallery-section">
+        <div class="gallery-scroll-container">
+          <div class="gallery-container">
+            <!-- Gallery Item 1: Hackathon -->
+            <div class="gallery-item floating" onclick="openHackathonModal()">
+              <div class="gallery-image">
+                <img src="hackathon/Intellibus.jpeg" alt="AI Hackathon 2025" />
+                <div class="gallery-overlay">
+                  <h3>AI Hackathon 2025</h3>
+                  <p>Click to view all photos</p>
+                </div>
+              </div>
+
+              <div class="gallery-content">
+                <h3>AI Hackathon 2025</h3>
+                <p>
+                  Documentation of my participation in the 2025 Intellibus AI
+                  Hackathon. Our team built a fully functional crime awareness
+                  app.
+                </p>
+                <div class="gallery-tags">
+                  <span>Hackathon</span>
+                  <span>AI</span>
+                  <span>Team Project</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Item 2: University Life -->
+            <div
+              class="gallery-item floating-1"
+              onclick="openUniversityModal()"
+            >
+              <div class="gallery-image">
+                <img src="UWI.png" alt="University Life" />
+                <div class="gallery-overlay">
+                  <h3>University Life</h3>
+                  <p>Click to view all photos</p>
+                </div>
+              </div>
+
+              <div class="gallery-content">
+                <h3>University Life</h3>
+                <p>
+                  Capturing memorable moments from my academic journey and
+                  campus life.
+                </p>
+                <div class="gallery-tags">
+                  <span>Education</span>
+                  <span>Campus</span>
+                  <span>Memories</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Item 3: Certificates -->
+            <div
+              class="gallery-item floating-2"
+              onclick="openCertificatesModal()"
+            >
+              <div class="gallery-image">
+                <img
+                  src="certificates/Kye Brathwaite - Intro to Machine Learning.png"
+                  alt="My Certificates"
+                />
+                <div class="gallery-overlay">
+                  <h3>My Certificates</h3>
+                  <p>Click to view all certificates</p>
+                </div>
+              </div>
+
+              <div class="gallery-content">
+                <h3>Certificates</h3>
+                <p>Here are some relevant certificates I have earned.</p>
+                <div class="gallery-tags">
+                  <span>Learning</span>
+                  <span>Professional Development</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll back button -->
+        <button
+          id="scrollBackBtn"
+          class="scroll-back-btn"
+          onclick="resetGalleryScroll()"
+          title="Scroll back to beginning"
+        >
+          <i class="fas fa-arrow-left"></i>
+        </button>
+      </section>
+    </main>
+
+    <!-- Modal for Image Preview (single image OR slideshow) -->
+    <div id="imageModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+
+      <button
+        class="modal-nav modal-nav-prev"
+        onclick="changeImage(-1)"
+        aria-label="Previous image"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <button
+        class="modal-nav modal-nav-next"
+        onclick="changeImage(1)"
+        aria-label="Next image"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <img class="modal-content" id="modalImage" alt="" />
+      <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <!-- Hackathon Gallery Modal -->
+    <div id="hackathonModal" class="modal">
+      <span class="close" onclick="closeHackathonModal()">&times;</span>
+
+      <div class="hackathon-gallery">
+        <h2>AI Hackathon 2025</h2>
+
+        <div class="hackathon-images">
+          <img
+            src="hackathon/app1.JPG"
+            alt="Hackathon Photo 1"
+            onclick="openModalFromHackathon(this, 0)"
+          />
+          <img
+            src="hackathon/app2.JPG"
+            alt="Hackathon Photo 2"
+            onclick="openModalFromHackathon(this, 1)"
+          />
+          <img
+            src="hackathon/app3.JPG"
+            alt="Hackathon Photo 3"
+            onclick="openModalFromHackathon(this, 2)"
+          />
+          <img
+            src="hackathon/app4.JPG"
+            alt="Hackathon Photo 4"
+            onclick="openModalFromHackathon(this, 3)"
+          />
+          <img
+            src="hackathon/me1.jpeg"
+            alt="Hackathon Photo 5"
+            onclick="openModalFromHackathon(this, 4)"
+          />
+          <img
+            src="hackathon/team1.jpeg"
+            alt="Hackathon Photo 6"
+            onclick="openModalFromHackathon(this, 5)"
+          />
+          <img
+            src="hackathon/team2.jpeg"
+            alt="Hackathon Photo 7"
+            onclick="openModalFromHackathon(this, 6)"
+          />
+          <img
+            src="hackathon/team3.jpeg"
+            alt="Hackathon Photo 8"
+            onclick="openModalFromHackathon(this, 7)"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- University Life Gallery Modal -->
+    <div id="universityModal" class="modal">
+      <span class="close" onclick="closeUniversityModal()">&times;</span>
+
+      <div class="hackathon-gallery">
+        <h2>University Life</h2>
+
+        <div class="hackathon-images">
+          <img
+            src="UniversityLife/pic1.jpg"
+            alt="University Photo 1"
+            onclick="openModalFromUniversity(this, 0)"
+          />
+          <img
+            src="UniversityLife/pic2.jpeg"
+            alt="University Photo 2"
+            onclick="openModalFromUniversity(this, 1)"
+          />
+          <img
+            src="UniversityLife/pic%203.jpeg"
+            alt="University Photo 3"
+            onclick="openModalFromUniversity(this, 2)"
+          />
+          <img
+            src="UniversityLife/pic4.JPG"
+            alt="University Photo 4"
+            onclick="openModalFromUniversity(this, 3)"
+          />
+          <img
+            src="UniversityLife/pic5.JPG"
+            alt="University Photo 5"
+            onclick="openModalFromUniversity(this, 4)"
+          />
+          <img
+            src="UniversityLife/pic6.jpeg"
+            alt="University Photo 6"
+            onclick="openModalFromUniversity(this, 5)"
+          />
+          <img
+            src="UniversityLife/pic7.jpg"
+            alt="University Photo 7"
+            onclick="openModalFromUniversity(this, 6)"
+          />
+          <img
+            src="UniversityLife/pic8.jpeg"
+            alt="University Photo 8"
+            onclick="openModalFromUniversity(this, 7)"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificates Gallery Modal -->
+    <div id="certificatesModal" class="modal">
+      <span class="close" onclick="closeCertificatesModal()">&times;</span>
+
+      <div class="hackathon-gallery">
+        <h2>Certificates</h2>
+
+        <div class="hackathon-images">
+          <img
+            src="certificates/Kye Brathwaite - Python.png"
+            alt="Python Certificate"
+            onclick="openModalFromCertificates(this, 0)"
+          />
+          <img
+            src="certificates/Kye Brathwaite - Advanced SQL.png"
+            alt="Advanced SQL Certificate"
+            onclick="openModalFromCertificates(this, 1)"
+          />
+          <img
+            src="certificates/Kye Brathwaite - Intro to Machine Learning.png"
+            alt="Intro to Machine Learning Certificate"
+            onclick="openModalFromCertificates(this, 2)"
+          />
+          <img
+            src="certificates/Kye Brathwaite - Intro to Programming.png"
+            alt="Intro to Programming Certificate"
+            onclick="openModalFromCertificates(this, 3)"
+          />
+          <img
+            src="certificates/Kye Brathwaite - Intro to SQL.png"
+            alt="Intro to SQL Certificate"
+            onclick="openModalFromCertificates(this, 4)"
+          />
+          <img
+            src="certificates/agile_project_management.jpg"
+            alt="Agile Project Management Certificate"
+            onclick="openModalFromCertificates(this, 5)"
+          />
+          <img
+            src="certificates/Foundations_of_project_management.jpg"
+            alt="Foundations of Project Management Certificate"
+            onclick="openModalFromCertificates(this, 6)"
+          />
+          <img
+            src="certificates/Putting_it_all_together.jpg"
+            alt="Putting It All Together Certificate"
+            onclick="openModalFromCertificates(this, 7)"
+          />
+          <img
+            src="certificates/running_the_project.jpg"
+            alt="Running the Project Certificate"
+            onclick="openModalFromCertificates(this, 8)"
+          />
+          <img
+            src="certificates/Starting_a_successful_project.jpg"
+            alt="Starting a Successful Project Certificate"
+            onclick="openModalFromCertificates(this, 9)"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer simple">
+      <div class="footer-content">
+        <p>&copy; 2025 Kye Brathwaite. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="mailto:Brathwaitekye@gmail.com">Contact Me</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="darkmode.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      const hackathonImages = [
+        "hackathon/app1.JPG",
+        "hackathon/app2.JPG",
+        "hackathon/app3.JPG",
+        "hackathon/app4.JPG",
+        "hackathon/me1.jpeg",
+        "hackathon/team1.jpeg",
+        "hackathon/team2.jpeg",
+        "hackathon/team3.jpeg",
+      ];
+
+      const universityImages = [
+        "UniversityLife/pic1.jpg",
+        "UniversityLife/pic2.jpeg",
+        "UniversityLife/pic%203.jpeg",
+        "UniversityLife/pic4.JPG",
+        "UniversityLife/pic5.JPG",
+        "UniversityLife/pic6.jpeg",
+        "UniversityLife/pic7.jpg",
+        "UniversityLife/pic8.jpeg",
+      ];
+
+      const certificatesImages = [
+        "certificates/Kye Brathwaite - Python.png",
+        "certificates/Kye Brathwaite - Advanced SQL.png",
+        "certificates/Kye Brathwaite - Intro to Machine Learning.png",
+        "certificates/Kye Brathwaite - Intro to Programming.png",
+        "certificates/Kye Brathwaite - Intro to SQL.png",
+        "certificates/agile_project_management.jpg",
+        "certificates/Foundations_of_project_management.jpg",
+        "certificates/Putting_it_all_together.jpg",
+        "certificates/running_the_project.jpg",
+        "certificates/Starting_a_successful_project.jpg",
+      ];
+
+      let currentImageIndex = 0;
+      let isMultiImageGallery = false;
+      let activeGalleryImages = [];
+      let activeGalleryTitle = "";
+
+      function openModal(element) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const caption = document.getElementById("modalCaption");
+        const navButtons = document.querySelectorAll(".modal-nav");
+
+        const img = element.querySelector("img");
+        const title = element.querySelector(".gallery-content h3").textContent;
+        const description =
+          element.querySelector(".gallery-content p").textContent;
+
+        isMultiImageGallery = false;
+        activeGalleryImages = [];
+        activeGalleryTitle = "";
+
+        modal.style.display = "block";
+        modal.style.zIndex = "10000";
+        modalImg.src = img.src;
+        caption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+
+        navButtons.forEach((btn) => (btn.style.display = "none"));
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("imageModal");
+        modal.style.display = "none";
+        isMultiImageGallery = false;
+        activeGalleryImages = [];
+        activeGalleryTitle = "";
+      }
+
+      function openHackathonModal() {
+        document.getElementById("hackathonModal").style.display = "block";
+      }
+
+      function closeHackathonModal() {
+        document.getElementById("hackathonModal").style.display = "none";
+      }
+
+      function openUniversityModal() {
+        document.getElementById("universityModal").style.display = "block";
+      }
+
+      function closeUniversityModal() {
+        document.getElementById("universityModal").style.display = "none";
+      }
+
+      function openCertificatesModal() {
+        document.getElementById("certificatesModal").style.display = "block";
+      }
+
+      function closeCertificatesModal() {
+        document.getElementById("certificatesModal").style.display = "none";
+      }
+
+      function openSlideshow(title, images, index, labelOverride) {
+        currentImageIndex = index;
+        isMultiImageGallery = true;
+        activeGalleryImages = images;
+        activeGalleryTitle = title;
+
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const caption = document.getElementById("modalCaption");
+        const navButtons = document.querySelectorAll(".modal-nav");
+
+        modal.style.display = "block";
+        modal.style.zIndex = "10000";
+        modalImg.src = activeGalleryImages[currentImageIndex];
+
+        const label = labelOverride || "Photo";
+        caption.innerHTML = `<h3>${activeGalleryTitle}</h3><p>${label} ${
+          currentImageIndex + 1
+        } of ${activeGalleryImages.length}</p>`;
+
+        navButtons.forEach((btn) => (btn.style.display = "flex"));
+      }
+
+      function openModalFromHackathon(img, index) {
+        closeHackathonModal();
+        openSlideshow("AI Hackathon 2025", hackathonImages, index, "Photo");
+      }
+
+      function openModalFromUniversity(img, index) {
+        closeUniversityModal();
+        openSlideshow("University Life", universityImages, index, "Photo");
+      }
+
+      function openModalFromCertificates(img, index) {
+        closeCertificatesModal();
+        openSlideshow("Certificates", certificatesImages, index, "Certificate");
+      }
+
+      function changeImage(direction) {
+        if (!isMultiImageGallery) return;
+        if (!activeGalleryImages.length) return;
+
+        currentImageIndex += direction;
+
+        if (currentImageIndex < 0) {
+          currentImageIndex = activeGalleryImages.length - 1;
+        } else if (currentImageIndex >= activeGalleryImages.length) {
+          currentImageIndex = 0;
+        }
+
+        const modalImg = document.getElementById("modalImage");
+        const caption = document.getElementById("modalCaption");
+
+        modalImg.src = activeGalleryImages[currentImageIndex];
+
+        const label =
+          activeGalleryTitle === "Certificates" ? "Certificate" : "Photo";
+
+        caption.innerHTML = `<h3>${activeGalleryTitle}</h3><p>${label} ${
+          currentImageIndex + 1
+        } of ${activeGalleryImages.length}</p>`;
+      }
+
+      document.addEventListener("keydown", function (e) {
+        const modal = document.getElementById("imageModal");
+
+        if (e.key === "Escape") {
+          closeModal();
+          closeHackathonModal();
+          closeUniversityModal();
+          closeCertificatesModal();
+        }
+
+        if (modal.style.display === "block" && isMultiImageGallery) {
+          if (e.key === "ArrowLeft") changeImage(-1);
+          if (e.key === "ArrowRight") changeImage(1);
+        }
+      });
+
+      function resetGalleryScroll() {
+        const scrollContainer = document.querySelector(
+          ".gallery-scroll-container"
+        );
+
+        if (scrollContainer) {
+          scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
+        }
+      }
+
+      document
+        .getElementById("imageModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeModal();
+        });
+
+      document
+        .getElementById("hackathonModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeHackathonModal();
+        });
+
+      document
+        .getElementById("universityModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeUniversityModal();
+        });
+
+      document
+        .getElementById("certificatesModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeCertificatesModal();
+        });
+
+      let touchStartX = 0;
+      const modalImage = document.getElementById("modalImage");
+
+      modalImage.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.touches[0].clientX;
+        },
+        { passive: true }
+      );
+
+      modalImage.addEventListener(
+        "touchend",
+        (e) => {
+          if (!isMultiImageGallery) return;
+
+          const touchEndX = e.changedTouches[0].clientX;
+          const diff = touchStartX - touchEndX;
+
+          if (Math.abs(diff) > 50) {
+            changeImage(diff > 0 ? 1 : -1);
+          }
+        },
+        { passive: true }
+      );
+
+      window.openModal = openModal;
+      window.closeModal = closeModal;
+
+      window.openHackathonModal = openHackathonModal;
+      window.closeHackathonModal = closeHackathonModal;
+      window.openModalFromHackathon = openModalFromHackathon;
+
+      window.openUniversityModal = openUniversityModal;
+      window.closeUniversityModal = closeUniversityModal;
+      window.openModalFromUniversity = openModalFromUniversity;
+
+      window.openCertificatesModal = openCertificatesModal;
+      window.closeCertificatesModal = closeCertificatesModal;
+      window.openModalFromCertificates = openModalFromCertificates;
+
+      window.changeImage = changeImage;
+      window.resetGalleryScroll = resetGalleryScroll;
+    </script>
+  </body>
+</html>
