@@ -5,49 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kye Brathwaite - Data Science & Automation</title>
     <script>
-  (function () {
-    try {
-      var force = sessionStorage.getItem("forceLoader") === "true";
-      var seen = sessionStorage.getItem("hasSeenLoader") === "true";
+      (function () {
+        try {
+          var force = sessionStorage.getItem("forceLoader") === "true";
+          var seen = sessionStorage.getItem("hasSeenLoader") === "true";
 
-      // Show loader only if first visit OR forceLoader is true
-      if (force || !seen) {
-        document.documentElement.classList.add("show-loader");
-      } else {
-        document.documentElement.classList.add("skip-loader");
+          // Show loader only if first visit OR forceLoader is true
+          if (force || !seen) {
+            document.documentElement.classList.add("show-loader");
+          } else {
+            document.documentElement.classList.add("skip-loader");
+          }
+        } catch (e) {
+          // If storage fails, default to showing loader
+          document.documentElement.classList.add("show-loader");
+        }
+      })();
+    </script>
+
+    <style>
+      /* Default: NO loader (prevents flicker on Home) */
+      #loadingScreen {
+        display: none !important;
       }
-    } catch (e) {
-      // If storage fails, default to showing loader
-      document.documentElement.classList.add("show-loader");
-    }
-  })();
-</script>
+      #mainContent {
+        display: block !important;
+      }
 
-<style>
-  /* Default: NO loader (prevents flicker on Home) */
-  #loadingScreen {
-    display: none !important;
-  }
-  #mainContent {
-    display: block !important;
-  }
+      /* If we should show the loader, flip visibility */
+      html.show-loader #loadingScreen {
+        display: flex !important; /* or block, match your loader layout */
+      }
+      html.show-loader #mainContent {
+        display: none !important;
+      }
 
-  /* If we should show the loader, flip visibility */
-  html.show-loader #loadingScreen {
-    display: flex !important; /* or block, match your loader layout */
-  }
-  html.show-loader #mainContent {
-    display: none !important;
-  }
-
-  /* If we should skip the loader, keep it hidden */
-  html.skip-loader #loadingScreen {
-    display: none !important;
-  }
-  html.skip-loader #mainContent {
-    display: block !important;
-  }
-</style>
+      /* If we should skip the loader, keep it hidden */
+      html.skip-loader #loadingScreen {
+        display: none !important;
+      }
+      html.skip-loader #mainContent {
+        display: block !important;
+      }
+    </style>
     <link rel="stylesheet" href="styles.css?v=20260106" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link
@@ -205,7 +205,7 @@
 
               <div class="resume-wrapper">
                 <a
-                  href="Kye%20Brathwaite%20-%20CV.pdf"
+                  href="Kye-Brathwaite-CV.pdf"
                   download
                   class="btn btn-primary resume-btn">
                   <i class="fas fa-download"></i> Download Resume
@@ -216,324 +216,283 @@
         </div>
       </section>
 
-<!-- Skills Section -->
-<section class="skills-section">
-  <h2>My Skills</h2>
+      <!-- Skills Section -->
+      <section class="skills-section">
+        <h2>My Skills</h2>
 
-  <div class="skills-grid">
-    <a
-      class="skill-card"
-      href="https://www.python.org/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Python website"
-      title="Python"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-        alt="Python"
-      />
-      <span>Python</span>
-    </a>
+        <div class="skills-grid">
+          <a
+            class="skill-card"
+            href="https://www.python.org/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Python website"
+            title="Python">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+              alt="Python" />
+            <span>Python</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://pandas.pydata.org/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="pandas website"
-      title="pandas"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
-        alt="Pandas"
-      />
-      <span>Pandas</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://pandas.pydata.org/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="pandas website"
+            title="pandas">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+              alt="Pandas" />
+            <span>Pandas</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://numpy.org/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="NumPy website"
-      title="NumPy"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"
-        alt="NumPy"
-      />
-      <span>NumPy</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://numpy.org/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="NumPy website"
+            title="NumPy">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg"
+              alt="NumPy" />
+            <span>NumPy</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://matplotlib.org/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Matplotlib website"
-      title="Matplotlib"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg"
-        alt="Matplotlib"
-      />
-      <span>Matplotlib</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://matplotlib.org/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Matplotlib website"
+            title="Matplotlib">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg"
+              alt="Matplotlib" />
+            <span>Matplotlib</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://scikit-learn.org/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="scikit-learn website"
-      title="scikit-learn"
-    >
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
-        alt="Scikit-learn"
-      />
-      <span>Scikit-learn</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://scikit-learn.org/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="scikit-learn website"
+            title="scikit-learn">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+              alt="Scikit-learn" />
+            <span>Scikit-learn</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://powerbi.microsoft.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Power BI website"
-      title="Power BI"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/powerbi.svg"
-        alt="Power BI"
-      />
-      <span>Power BI</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://powerbi.microsoft.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Power BI website"
+            title="Power BI">
+            <img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/powerbi.svg"
+              alt="Power BI" />
+            <span>Power BI</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://www.r-project.org/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="R Project website"
-      title="R"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg"
-        alt="R"
-      />
-      <span>R</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://www.r-project.org/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="R Project website"
+            title="R">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg"
+              alt="R" />
+            <span>R</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://www.tableau.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Tableau website"
-      title="Tableau"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/npm/simple-icons@13.1.0/icons/tableau.svg"
-        alt="Tableau"
-      />
-      <span>Tableau</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://www.tableau.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Tableau website"
+            title="Tableau">
+            <img
+              src="https://cdn.jsdelivr.net/npm/simple-icons@13.1.0/icons/tableau.svg"
+              alt="Tableau" />
+            <span>Tableau</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://jupyter.org/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Jupyter website"
-      title="Jupyter"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg"
-        alt="Jupyter"
-      />
-      <span>Jupyter</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://jupyter.org/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Jupyter website"
+            title="Jupyter">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg"
+              alt="Jupyter" />
+            <span>Jupyter</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://n8n.io/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="n8n website"
-      title="n8n"
-    >
-      <img src="https://n8n.io/favicon.ico" alt="n8n" />
-      <span>n8n</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://n8n.io/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="n8n website"
+            title="n8n">
+            <img src="https://n8n.io/favicon.ico" alt="n8n" />
+            <span>n8n</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://developer.mozilla.org/en-US/docs/Web/HTML"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="HTML documentation"
-      title="HTML/CSS"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-        alt="HTML5"
-      />
-      <span>HTML/CSS</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="HTML documentation"
+            title="HTML/CSS">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              alt="HTML5" />
+            <span>HTML/CSS</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://learn.microsoft.com/powershell/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="PowerShell documentation"
-      title="PowerShell"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg"
-        alt="PowerShell"
-      />
-      <span>PowerShell</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://learn.microsoft.com/powershell/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="PowerShell documentation"
+            title="PowerShell">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg"
+              alt="PowerShell" />
+            <span>PowerShell</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://nodejs.org/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Node.js website"
-      title="Node.js"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-        alt="Node.js"
-      />
-      <span>Node.js</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://nodejs.org/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Node.js website"
+            title="Node.js">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              alt="Node.js" />
+            <span>Node.js</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://www.npmjs.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="npm website"
-      title="npm"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg"
-        alt="npm"
-      />
-      <span>npm</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://www.npmjs.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="npm website"
+            title="npm">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg"
+              alt="npm" />
+            <span>npm</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://github.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="GitHub website"
-      title="GitHub"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-        alt="GitHub"
-      />
-      <span>GitHub</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://github.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub website"
+            title="GitHub">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+              alt="GitHub" />
+            <span>GitHub</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://git-scm.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Git website"
-      title="Git"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-        alt="Git"
-      />
-      <span>Git</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://git-scm.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Git website"
+            title="Git">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              alt="Git" />
+            <span>Git</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://www.notion.so/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Notion website"
-      title="Notion"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg"
-        alt="Notion"
-      />
-      <span>Notion</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://www.notion.so/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Notion website"
+            title="Notion">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg"
+              alt="Notion" />
+            <span>Notion</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://www.postgresql.org/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="PostgreSQL website"
-      title="PostgreSQL"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-        alt="PostgreSQL"
-      />
-      <span>PostgreSQL</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://www.postgresql.org/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="PostgreSQL website"
+            title="PostgreSQL">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+              alt="PostgreSQL" />
+            <span>PostgreSQL</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://www.oracle.com/java/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Java website"
-      title="Java"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-        alt="Java"
-      />
-      <span>Java</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://www.oracle.com/java/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Java website"
+            title="Java">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+              alt="Java" />
+            <span>Java</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://react.dev/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="React website"
-      title="React"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-        alt="React"
-      />
-      <span>React</span>
-    </a>
+          <a
+            class="skill-card"
+            href="https://react.dev/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="React website"
+            title="React">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              alt="React" />
+            <span>React</span>
+          </a>
 
-    <a
-      class="skill-card"
-      href="https://www.kaggle.com/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Kaggle website"
-      title="Kaggle"
-    >
-      <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kaggle/kaggle-original.svg"
-        alt="Kaggle"
-      />
-      <span>Kaggle</span>
-    </a>
-  </div>
-</section>
+          <a
+            class="skill-card"
+            href="https://www.kaggle.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Kaggle website"
+            title="Kaggle">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kaggle/kaggle-original.svg"
+              alt="Kaggle" />
+            <span>Kaggle</span>
+          </a>
+        </div>
+      </section>
 
       <!-- CTA Section -->
       <section class="cta-section">
@@ -603,8 +562,7 @@
       </footer>
     </div>
 
-<script src="darkmode.js?v=20260106"></script>
-<script src="script.js?v=20260106"></script>
-</body>
+    <script src="darkmode.js?v=20260106"></script>
+    <script src="script.js?v=20260106"></script>
+  </body>
 </html>
-
